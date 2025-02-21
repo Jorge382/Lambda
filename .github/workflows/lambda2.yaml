@@ -15,11 +15,11 @@ jobs:
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_region: ${{ secrets.AWS_DEFAULT_REGION }}
           aws_session_token: ${{ secrets.AWS_SESSION_TOKEN }}
-          function_name: daily_shutdown # nombre de la nueva funcion lambda
-          source: src/main.py
+          function_name: jvs-dnsroute # nombre de la nueva funcion lambda
+          source: src/dnsroute.py
           # zip_file: example/deployment.zip
           memory_size: 128
           timeout: 300
           # handler: foobar
-          role: arn:aws:iam::248189943700:role/pruebalambdajvs
+          role: arn:aws:iam::248189943700:role/service-role/jvs-dnsroute-role-olcgws61
           runtime: python3.13
