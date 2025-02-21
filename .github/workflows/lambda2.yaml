@@ -1,4 +1,4 @@
-name: deploy to lambda
+name: Lambda para Asignación Dinámica de DNS
 on:
   workflow_dispatch:
 jobs:
