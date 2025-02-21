@@ -3,7 +3,7 @@ on:
   workflow_dispatch:
 jobs:
   deploy_source:
-    name: Daily shutdown
+    name: Lambda para Asignación Dinámica de DNS
     runs-on: ubuntu-latest
     steps:
       - name: checkout source code
