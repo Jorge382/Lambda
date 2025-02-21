@@ -1,0 +1,25 @@
+name: deploy to lambda
+on:
+  workflow_dispatch:
+jobs:
+  deploy_source:
+    name: Daily shutdown
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout source code
+        uses: actions/checkout@v3
+      - name: default deploy
+        uses: appleboy/lambda-action@v0.2.0
+        with:
+          aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws_region: ${{ secrets.AWS_DEFAULT_REGION }}
+          aws_session_token: ${{ secrets.AWS_SESSION_TOKEN }}
+          function_name: daily_shutdown # nombre de la nueva funcion lambda
+          source: src/main.py
+          # zip_file: example/deployment.zip
+          memory_size: 128
+          timeout: 300
+          # handler: foobar
+          role: arn:aws:iam::248189943700:role/service-role/daily_shutdown-role-olcgws61
+          runtime: python3.13
